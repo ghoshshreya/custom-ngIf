@@ -1,4 +1,8 @@
-<hello name="{{ name }}"></hello>
-<!---DIRECTIVE SAME AS NGIF-->
+<h2>Custom ngIf Implementation</h2>
+
 <div *isAllowed="showMe">I am Visible</div>
-<button type="button" (click)="showMe = !showMe">showMe</button>
+
+<button type="button" (click)="showMe = !showMe">
+  <ng-container *ngIf="!showMe; else hide">Show Me</ng-container>
+  <ng-template #hide>Hide Me</ng-template>
+</button>
